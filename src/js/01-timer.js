@@ -49,9 +49,11 @@ flatpickr(dateTimePicker, options);
 
 startButton.addEventListener('click', () => {
   if (startButton.classList.contains('bt-active')) {
+    dateTimePicker.disabled = true;
     startButton.disabled = true;
     startButton.classList.remove('bt-active');
     startCountdown(userSelectedDate);
+    refs.startTimerBtn.disabled = true;
   }
 });
 
