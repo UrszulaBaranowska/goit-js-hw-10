@@ -2,7 +2,6 @@ import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
-import errorIcon from '../img/error.svg';
 
 const startButton = document.querySelector('button[data-start]');
 const dateTimePicker = document.getElementById('datetime-picker');
@@ -12,7 +11,8 @@ const timerFields = {
   minutes: document.querySelector('[data-minutes]'),
   seconds: document.querySelector('[data-seconds]'),
 };
-let userSelectedDate;
+
+let userSelectedDate = '';
 
 const options = {
   enableTime: true,
@@ -23,6 +23,7 @@ const options = {
     const selectedDate = selectedDates[0];
     if (selectedDate <= new Date()) {
       iziToast.error({
+        position: 'topRight',
         title: 'Error',
         titleColor: '#fff',
         titleSize: '16px',
@@ -32,15 +33,14 @@ const options = {
         messageSize: '16px',
         messageLineHeight: '1.5',
         backgroundColor: '#ef4040',
-        position: 'topRight',
-        iconUrl: 'errorIcon',
         theme: 'dark',
-        position: 'center',
       });
       startButton.disabled = true;
+      startButton.classList.remove('bt-active');
     } else {
       userSelectedDate = selectedDate;
       startButton.disabled = false;
+      startButton.classList.add('bt-active');
     }
   },
 };
@@ -48,8 +48,11 @@ const options = {
 flatpickr(dateTimePicker, options);
 
 startButton.addEventListener('click', () => {
-  startButton.disabled = true;
-  startCountdown(userSelectedDate);
+  if (startButton.classList.contains('bt-active')) {
+    startButton.disabled = true;
+    startButton.classList.remove('bt-active');
+    startCountdown(userSelectedDate);
+  }
 });
 
 function startCountdown(targetDate) {
