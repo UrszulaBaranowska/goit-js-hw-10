@@ -24,6 +24,9 @@ input:hover,
 fieldset:hover {
   border: 1px solid #000;
 }
+input:focus {
+  border: 1px solid #4e75ff;
+}
 label {
   font-weight: 400;
   font-size: 16px;
