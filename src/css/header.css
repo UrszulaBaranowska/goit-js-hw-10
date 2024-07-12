@@ -1,7 +1,15 @@
 .header {
   padding: 20px 0;
 }
-
+.hw-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+.nav {
+  font-size: 25px;
+}
 .nav-list {
   display: flex;
   align-items: center;

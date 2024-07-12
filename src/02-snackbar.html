@@ -16,28 +16,27 @@
     <section>
       <a href="./index.html">Go to home</a>
       <h1>SNACKBAR</h1>
+      <form class="form" id="promiseForm">
+        <label>
+          Delay (ms)
+          <input type="number" name="delay" />
+        </label>
+
+        <fieldset>
+          <legend>State</legend>
+          <label>
+            <input type="radio" name="state" value="fulfilled" />
+            Fulfilled
+          </label>
+          <label>
+            <input type="radio" name="state" value="rejected" />
+            Rejected
+          </label>
+        </fieldset>
+
+        <button type="submit">Create notification</button>
+      </form>
     </section>
-    <form class="form" id="promiseForm">
-      <label>
-        Delay (ms)
-        <input type="number" name="delay" />
-      </label>
-
-      <fieldset>
-        <legend>State</legend>
-        <label>
-          <input type="radio" name="state" value="fulfilled" />
-          Fulfilled
-        </label>
-        <label>
-          <input type="radio" name="state" value="rejected" />
-          Rejected
-        </label>
-      </fieldset>
-
-      <button type="submit">Create notification</button>
-    </form>
-
     <script src="./js/02-snackbar.js" type="module"></script>
   </body>
 </html>

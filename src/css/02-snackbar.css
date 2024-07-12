@@ -1,5 +1,6 @@
 .form {
   width: 360px;
+  margin: 36px 0 32px 156px;
 }
 .form > label {
   display: flex;
@@ -73,4 +74,13 @@ button {
 button:hover,
 button:focus {
   background: #6c8cff;
+}
+.iziToast-button {
+  gap: 4px;
+  color: #000;
+  background-color: #cfcfcf;
+  align-items: center;
+  width: 68px;
+  height: 32px;
+  display: inline-block;
 }
