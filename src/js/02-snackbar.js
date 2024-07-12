@@ -10,24 +10,24 @@ document.addEventListener('DOMContentLoaded', () => {
   form.addEventListener('submit', event => {
     event.preventDefault();
 
-    const delayInput = form.delay;
-    const stateInput = form.state;
+    const delayInput = form.elements['delay'];
+    const stateInput = form.elements['state'];
     const delay = delayInput.value.trim();
     const state = stateInput.value.trim();
 
     if (delay === '' || state === '') {
       iziToast.warning({
         title: 'CAUTION',
+        titleColor: '#ffffff',
         message: 'You forgot important data!',
         position: 'topRight',
-        backgroundColor: '#FFA500',
-        messageColor: '#ffffff',
         iconUrl: cautionIcon,
+        backgroundColor: '#FFA000',
+        messageColor: '#ffffff',
         close: false,
       });
       return;
     }
-
     createPromise(parseInt(delay), state)
       .then(delay => {
         iziToast.success({
